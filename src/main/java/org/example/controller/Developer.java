@@ -4,10 +4,13 @@ import java.util.Date;
 
 public class Developer extends Employee{
     private String[] skills;
+    private Manager reportingManager;
 
-    public Developer(String fName, String lName, Integer age, Date joinDate, String[] skills){
+    public Developer(String fName, String lName, Integer age, Date joinDate, String[] skills, Manager reportingManager){
         super(fName, lName, age, joinDate);
         this.skills = skills;
+        this.reportingManager = reportingManager;
+        this.reportingManager.addReportingEmployees(this);
     }
 
     public String[] getSkills() {
@@ -18,14 +21,22 @@ public class Developer extends Employee{
         this.skills = skills;
     }
 
+    public Manager getReportingManager() {
+        return reportingManager;
+    }
+
+    public void setReportingManager(Manager reportingManager) {
+        this.reportingManager = reportingManager;
+    }
+
     public void display() {
-        System.out.println("--------------------------------------------------------------------------");
-        System.out.println("Name: " + this.getfName() + " " + this.getlName());
-        System.out.println("Age: " + this.getAge());
-        System.out.println("Join Date: " + this.getJoinDate());
+        super.display();
+        System.out.print("Reporting Manager: "+this.getReportingManager().getfName()+ " " + this.getReportingManager().getlName() + "\n");
         System.out.print("Department: ");
         for(String skill: skills){
             System.out.print(skill+",");
         }
+        System.out.println("");
     }
+
 }

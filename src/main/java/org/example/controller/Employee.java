@@ -62,5 +62,13 @@ public class Employee {
         this.joinDate = joinDate;
     }
 
+    public void display(){
+        System.out.println("--------------------------------------------------------------------------");
+        System.out.println("Employee Id: " + this.getId());
+        System.out.println("Name: " + this.getfName() + " " + this.getlName());
+        System.out.println("Age: " + this.getAge());
+        System.out.println("Join Date: " + this.getJoinDate());
+    }
+
 
 }
