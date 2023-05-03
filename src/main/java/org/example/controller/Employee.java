@@ -2,13 +2,14 @@ package org.example.controller;
 
 import java.util.Date;
 
-public class Employee {
+public class Employee implements EmployeeRepo{
     private static Integer counter = 1;
     private Integer id;
     private String fName;
     private String lName;
     private Integer age;
     private Date joinDate;
+    private String companyName = "Starbucks";
 
     public Employee(){
         this.id = counter++;
@@ -71,4 +72,9 @@ public class Employee {
     }
 
 
+    @Override
+    public void displayCompanyName() {
+        System.out.println("Company Name: "+this.companyName);
+        System.out.println(EmployeeRepo.todayDate);
+    }
 }

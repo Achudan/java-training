@@ -27,6 +27,8 @@ public class MainApp {
 
         em1.displayReportingEmployees();
 
+        em1.displayCompanyName();
+
 
 
     }
