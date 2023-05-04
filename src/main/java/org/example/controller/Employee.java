@@ -2,24 +2,25 @@ package org.example.controller;
 
 import java.util.Date;
 
-public class Employee implements EmployeeRepo{
+public class Employee extends Person implements EmployeeRepo{
     private static Integer counter = 1;
     private Integer id;
-    private String fName;
-    private String lName;
-    private Integer age;
     private Date joinDate;
     private String companyName = "Starbucks";
 
     public Employee(){
+        super();
         this.id = counter++;
     }
 
+    @Override
+    public void displaySalary() {
+        System.out.println("Salary is confidential");
+    }
+
     public Employee(String fName, String lName, Integer age, Date joinDate){
+        super( fName,  lName,  age);
         this.id = counter++;
-        this.fName = fName;
-        this.lName = lName;
-        this.age = age;
         this.joinDate = joinDate;
     }
 
@@ -29,30 +30,6 @@ public class Employee implements EmployeeRepo{
 
     public void setId(Integer id) {
         this.id = id;
-    }
-
-    public String getfName() {
-        return fName;
-    }
-
-    public void setfName(String fName) {
-        this.fName = fName;
-    }
-
-    public String getlName() {
-        return lName;
-    }
-
-    public void setlName(String lName) {
-        this.lName = lName;
-    }
-
-    public Integer getAge() {
-        return age;
-    }
-
-    public void setAge(Integer age) {
-        this.age = age;
     }
 
     public Date getJoinDate() {
